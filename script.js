@@ -26,9 +26,18 @@ do i want numbers true/false
 
 //random choice
 
-var symbols = 
+var upperCase = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
 
-// Assignment Code
+var lowerCase = ["abcdefghijklmnopqrstuvwxyz"]
+
+var numbers = ["1234567890"]
+
+var symbols = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+
+
+//Assignment Code
+
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
