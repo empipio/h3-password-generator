@@ -34,6 +34,8 @@ var numbers = "1234567890";
 
 var symbols = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 
+charactersUsed = []
+
 
 
 //Assignment Code
@@ -61,12 +63,34 @@ function writePassword() {
 
   var selectSymbols = window.confirm("Would you like to include special characters?");
 
+
   var password = generatePassword();
+  if (selectUpper = true) {
+    charactersUsed.concat(selectUpper)
+  } 
+  if (selectLower = true) {
+    charactersUsed.concat(selectLower)
+  }
+  if (selectNumbers = true) {
+    charactersUsed.concat(selectNumbers)
+  }
+  if (selectSymbols = true) {
+    charactersUsed.concat(selectSymbols)
+  }
+  //for loop here?
+  for (i = 0; i < passwordLength; i++) {
+    //random character/number generation
+  } 
+
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
+  //display password in window.alert
 
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+writePassword();
