@@ -32,6 +32,8 @@ do i want numbers true/false
 
 //Assignment Code
 
+
+//arrays to pick from according to criteria selected by user
 var upperCase = [
   "A",
   "B",
@@ -131,6 +133,7 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword() {
   var passwordLength = window.prompt("Select number of characters, 8-128");
 
+  //function will only run when between 8 and 128 characters long
   if (passwordLength < 8) {
     return;
   }
@@ -139,6 +142,7 @@ function generatePassword() {
     return;
   }
 
+  //users select crieteria they would like to use in the password
   var selectUpper = window.confirm(
     "Would you like to include uppercase letters?"
   );
@@ -147,18 +151,23 @@ function generatePassword() {
     "Would you like to include lowercase letters?"
   );
 
-  var selectNumbers = window.confirm("Would you like to include numbers?");
+  var selectNumbers = window.confirm(
+    "Would you like to include numbers?"
+  );
 
   var selectSymbols = window.confirm(
     "Would you like to include special characters?"
   );
 
+  //alert if no criteria selected
   if (!selectUpper && !selectLower && !selectNumbers && !selectSymbols) {
-    window.alert("Please choose at least one value");
+    window.alert("Please choose at least one criteria");
   }
 
+  //empty array in which to add criteria selected by user
   var charactersUsed = [];
 
+  //concatenation of arrays according to criteria selected by user
   if (selectUpper) {
     charactersUsed = charactersUsed.concat(upperCase);
   }
@@ -175,8 +184,10 @@ function generatePassword() {
     charactersUsed = charactersUsed.concat(symbols);
   }
 
+  //empty string where password will be generated
   var password = "";
 
+  //for loop to randomly generate password
   for (var i = 0; i < passwordLength; i++) {
     var randomIndex = Math.floor(Math.random() * charactersUsed.length);
     var randomCharacter = charactersUsed[randomIndex];
