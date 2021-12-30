@@ -126,7 +126,6 @@ var symbols = [
   "+",
 ];
 
-
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
@@ -154,6 +153,10 @@ function generatePassword() {
     "Would you like to include special characters?"
   );
 
+  if (!selectUpper && !selectLower && !selectNumbers && !selectSymbols) {
+    window.alert("Please choose at least one value");
+  }
+
   var charactersUsed = [];
 
   if (selectUpper) {
@@ -171,13 +174,13 @@ function generatePassword() {
   if (selectSymbols) {
     charactersUsed = charactersUsed.concat(symbols);
   }
-  
-  var password = ""
+
+  var password = "";
 
   for (var i = 0; i < passwordLength; i++) {
     var randomIndex = Math.floor(Math.random() * charactersUsed.length);
     var randomCharacter = charactersUsed[randomIndex];
-    password = password + randomCharacter
+    password = password + randomCharacter;
   }
 
   return password;
@@ -194,7 +197,6 @@ function writePassword() {
   //display password in window.alert
   window.alert("here is your password: " + password);
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
