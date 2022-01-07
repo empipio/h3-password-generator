@@ -28,3 +28,6 @@ The criteria to fill for this project were as follows:
 
 ![image of application](application.png)
 
+
+The link for the project is as follows: https://empipio.github.io/h3-password-generator/
+
