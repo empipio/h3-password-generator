@@ -92,7 +92,7 @@ var lowerCase = [
   "z",
 ];
 
-var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+var numbers = ["1","2","3","4","5","6","7","8","9","0","1","2","3","4","5","6","7","8","9","0"];
 
 var symbols = [
   "/",
@@ -135,10 +135,12 @@ function generatePassword() {
 
   //function will only run when between 8 and 128 characters long
   if (passwordLength < 8) {
+    window.alert("Please select between 8 and 128 characters");
     return;
   }
 
   if (passwordLength > 128) {
+    window.alert("Please select between 8 and 128 characters");
     return;
   }
 
@@ -147,6 +149,14 @@ function generatePassword() {
   var selectUpper = window.confirm(
     "Would you like to include uppercase letters?"
   );
+
+  //Tried this for each confirm to ensure one of each criteria was selected. 
+  //It didn't work but as I ran out of time thought it might be worth leaving to "show my working"?
+  // if (selectUpper) {
+  //   var randomUpper = Math.floor(Math.random() * selectUpper.length);
+  //   var singleUpper = selectUpper[randomUpper];
+  //   password = password + singleUpper; 
+  // }
 
   var selectLower = window.confirm(
     "Would you like to include lowercase letters?"
@@ -185,17 +195,24 @@ function generatePassword() {
     charactersUsed = charactersUsed.concat(symbols);
   }
 
-  //empty string where password will be generated
-  var password = "";
+ //empty string where password will be generated
+ var password = "";
 
-  //for loop to randomly generate password
-  for (var i = 0; i < passwordLength; i++) {
-    var randomIndex = Math.floor(Math.random() * charactersUsed.length);
-    var randomCharacter = charactersUsed[randomIndex];
-    password = password + randomCharacter;
-  }
+ //for loop to randomly generate password
+ for (var i = 0; i < passwordLength; i++) {
+   var randomIndex = Math.floor(Math.random() * charactersUsed.length);
+   var randomCharacter = charactersUsed[randomIndex];
+   password = password + randomCharacter;
+ }
 
-  return password;
+//more workings to try and ensure one of each criteria selected was included
+ // for (var i = 0; i < (passwordLength-password.length); i++) {
+//   var randomIndex = Math.floor(Math.random() * charactersUsed.length);
+//   var randomCharacter = charactersUsed[randomIndex];
+//   password = password + randomCharacter;
+// }
+
+ return password;
 }
 
 // Write password to the #password input
