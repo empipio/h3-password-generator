@@ -142,7 +142,8 @@ function generatePassword() {
     return;
   }
 
-  //users select crieteria they would like to use in the password
+  //users select criteria they would like to use in the password
+  //ensuring one of each selected character would need to go here:
   var selectUpper = window.confirm(
     "Would you like to include uppercase letters?"
   );
