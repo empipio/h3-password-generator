@@ -1,40 +1,5 @@
-//generate password
-
-//symbols /
-
-//letters uppercase /
-
-//letters lowercase /
-
-//numbers /
-
-//choose password length 8-128 characters /
-
-/*
-
-do i want symbols true/false
-
-do i want lowercase true/false
-
-do i want uppercase true/false
-
-do i want numbers true/false
-
-*/
-
-//assemble password /
-
-//random choice /
-
-// prompt if nothing selected
-
-// some way of ensuring one of each criteria has been added to the password
-
-//Assignment Code
-
-
 //arrays to pick from according to criteria selected by user
-var upperCase = [
+const upperCase = [
   "A",
   "B",
   "C",
@@ -63,7 +28,7 @@ var upperCase = [
   "Z",
 ];
 
-var lowerCase = [
+const lowerCase = [
   "a",
   "b",
   "c",
@@ -92,9 +57,30 @@ var lowerCase = [
   "z",
 ];
 
-var numbers = ["1","2","3","4","5","6","7","8","9","0","1","2","3","4","5","6","7","8","9","0"];
+const numbers = [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+];
 
-var symbols = [
+const symbols = [
   "/",
   "!",
   "@",
@@ -128,10 +114,10 @@ var symbols = [
   "+",
 ];
 
-var generateBtn = document.querySelector("#generate");
+const generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  var passwordLength = window.prompt("Select number of characters, 8-128");
+  const passwordLength = window.prompt("Select number of characters, 8-128");
 
   //function will only run when between 8 and 128 characters long
   if (passwordLength < 8) {
@@ -146,27 +132,17 @@ function generatePassword() {
 
   //users select criteria they would like to use in the password
   //ensuring one of each selected character would need to go here:
-  var selectUpper = window.confirm(
+  const selectUpper = window.confirm(
     "Would you like to include uppercase letters?"
   );
 
-  //Tried this for each confirm to ensure one of each criteria was selected. 
-  //It didn't work but as I ran out of time thought it might be worth leaving to "show my working"?
-  // if (selectUpper) {
-  //   var randomUpper = Math.floor(Math.random() * selectUpper.length);
-  //   var singleUpper = selectUpper[randomUpper];
-  //   password = password + singleUpper; 
-  // }
-
-  var selectLower = window.confirm(
+  const selectLower = window.confirm(
     "Would you like to include lowercase letters?"
   );
 
-  var selectNumbers = window.confirm(
-    "Would you like to include numbers?"
-  );
+  const selectNumbers = window.confirm("Would you like to include numbers?");
 
-  var selectSymbols = window.confirm(
+  const selectSymbols = window.confirm(
     "Would you like to include special characters?"
   );
 
@@ -176,7 +152,7 @@ function generatePassword() {
   }
 
   //empty array in which to add criteria selected by user
-  var charactersUsed = [];
+  let charactersUsed = [];
 
   //concatenation of arrays according to criteria selected by user
   if (selectUpper) {
@@ -195,31 +171,24 @@ function generatePassword() {
     charactersUsed = charactersUsed.concat(symbols);
   }
 
- //empty string where password will be generated
- var password = "";
+  //empty string where password will be generated
+  let password = "";
 
- //for loop to randomly generate password
- for (var i = 0; i < passwordLength; i++) {
-   var randomIndex = Math.floor(Math.random() * charactersUsed.length);
-   var randomCharacter = charactersUsed[randomIndex];
-   password = password + randomCharacter;
- }
+  //for loop to randomly generate password
+  for (let i = 0; i < passwordLength; i++) {
+    const randomIndex = Math.floor(Math.random() * charactersUsed.length);
+    const randomCharacter = charactersUsed[randomIndex];
+    password = password + randomCharacter;
+  }
 
-//more workings to try and ensure one of each criteria selected was included
- // for (var i = 0; i < (passwordLength-password.length); i++) {
-//   var randomIndex = Math.floor(Math.random() * charactersUsed.length);
-//   var randomCharacter = charactersUsed[randomIndex];
-//   password = password + randomCharacter;
-// }
-
- return password;
+  return password;
 }
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  const password = generatePassword();
 
-  var passwordText = document.querySelector("#password");
+  const passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
